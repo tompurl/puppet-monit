@@ -1,6 +1,6 @@
-class monit::config {
+class monit::config inherits monit {
     file { "/etc/monit/monitrc":
-        source  => "puppet:///modules/monit/monitrc",
+        content => template("monit/monitrc.erb"),
         require => Class["monit::install"],
         mode    => 600,
         owner   => root,

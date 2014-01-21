@@ -14,6 +14,8 @@
 # Sample Usage:
 #
 
-class monit {
+class monit ($alert_address,
+             $web_username = "admin",
+             $web_password = "monit") {
     include monit::install, monit::config, monit::service
 }
