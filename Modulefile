@@ -1,0 +1,7 @@
+name    'tompurl-monit'
+version '0.1.0'
+source 'https://github.com/tompurl/puppet-monit'
+author 'tompurl'
+license 'Apache License, Version 2.0'
+summary 'Install and configure monit'
+description 'See summary :-)'
