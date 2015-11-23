@@ -53,10 +53,18 @@
 #                backup.bar.baz port 10025,  # backup mailserver on port 10025
 #                localhost                   # fallback relay
 set mailserver <%= scope.lookupvar('monit::smtp_host')%> 
+<% if scope.lookupvar('monit::smtp_port') != "" %>
     port <%= scope.lookupvar('monit::smtp_port')%> 
+<% end %>
+<% if scope.lookupvar('monit::smtp_user_name') != "" %>
     username <%= scope.lookupvar('monit::smtp_user_name')%>
+<% end %>
+<% if scope.lookupvar('monit::smtp_password') != "" %>
     password <%= scope.lookupvar('monit::smtp_password')%>
+<% end %>
+<% if scope.lookupvar('monit::smtp_port') != "" and scope.lookupvar('monit::smtp_port') != "25" %>
     using TLSV1 with timeout 10 seconds
+<% end %>
     using hostname "<%= scope.lookupvar('monit::email_hostname')%>"
 
 #
